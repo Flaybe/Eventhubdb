@@ -20,7 +20,8 @@ else:
         dbpass = os.environ['DBPASS'],
         dbhost = os.environ['DBHOST'] + ".postgres.database.azure.com",
         dbname = os.environ['DBNAME'])
-
+    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
+    
 db = SQLAlchemy(app)
 
 
