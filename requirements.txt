@@ -22,4 +22,5 @@ SQLAlchemy==1.4.46
 tomli==2.0.1
 urllib3==1.26.14
 Werkzeug==2.2.2
+psycopg2-binary
 zipp==3.11.0

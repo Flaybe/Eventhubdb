@@ -4,13 +4,23 @@ from crypt import methods
 from flask import jsonify
 import uuid
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 def create_app():
     app = Flask(__name__)
     return app
 
 app = create_app()
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./test.db'
+if not 'WEBSITE_HOSTNAME' in os.environ:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./test.db'
+
+else:
+    DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
+        dbuser = os.environ['DBUSER'],
+        dbpass = os.environ['DBPASS'],
+        dbhost = os.environ['DBHOST'] + ".postgres.database.azure.com",
+        dbname = os.environ['DBNAME'])
+
 db = SQLAlchemy(app)
 
 
