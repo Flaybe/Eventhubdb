@@ -10,10 +10,8 @@ def create_app():
     return app
 
 app = create_app()
-
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./test.db'
-db = SQLAlchemy()
+db = SQLAlchemy(app)
 
 
 read_by = db.Table('read_by',
