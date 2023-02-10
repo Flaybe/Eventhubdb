@@ -47,7 +47,8 @@ class Message(db.Model):
         result = {}
         result['id'] = self.id
         result['message'] = self.msg
-        result['read_by'] = self.user_read_msg
+        idlist = [userid.id for userid in self.user_read_msg]
+        result["read_by"] = idlist
     
         return result
 
