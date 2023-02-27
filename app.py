@@ -546,5 +546,7 @@ def add_friend(UserID, UserID2):
     return jsonify({'response': 'Friend added'}), 200
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.debug = True
+    db.init_app(app)
+    app.run()
