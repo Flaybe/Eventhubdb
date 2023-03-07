@@ -11,7 +11,7 @@ class Config:
             dbhost=os.environ['DBHOST'] + ".postgres.database.azure.com",
             dbname=os.environ['DBNAME'])
 
-        JWT_SECRET_KEY = os.environ['JWT_SECRET_KEY']
+        JWT_SECRET_KEY = os.environ['DBSECRET']
 
     JWT_ACCESS_TOKEN_EXPIRES = 12000
 
